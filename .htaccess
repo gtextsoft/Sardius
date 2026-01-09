@@ -1,7 +1,8 @@
-# Redirect /investormeeting to Zoom webinar registration
+# Enable Rewrite Engine
 RewriteEngine On
+
+# Redirect /investormeeting to Zoom webinar registration
 RewriteRule ^investormeeting/?$ https://us06web.zoom.us/webinar/register/WN_zuELErzoSWuV17PIS_x0Iw [R=301,L]
 
 # Redirect /product to Google Drive folder
 RewriteRule ^product/?$ https://drive.google.com/drive/folders/1mWNyPr2ATmU6BFt6Z3tqCZt-A0jTmQB7 [R=301,L]
-
