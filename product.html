@@ -235,7 +235,6 @@
             </ul>
           </li>
           <li class="nav__item"><a href="product.html" class="nav__link active">Products</a></li>
-          <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
           <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
         <a href="contact.html" class="btn btn--primary btn--sm">Book Inspection</a>
@@ -251,9 +250,8 @@
       <ul class="nav__mobile-list">
         <li><a href="index.html" class="nav__mobile-link">Home</a></li>
         <li><a href="about.html" class="nav__mobile-link">About</a></li>
-        <li><a href="locations.html" class="nav__mobile-link">Estates</a></li>
+        
         <li><a href="product.html" class="nav__mobile-link">Products</a></li>
-        <li><a href="services.html" class="nav__mobile-link">Services</a></li>
         <li><a href="contact.html" class="nav__mobile-link">Contact</a></li>
       </ul>
     </nav>
@@ -328,16 +326,28 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Estate IDs from API:
+    // 8 = Epe (Lagos)
+    // 15 = Ijebu-Ode (Ogun)
+    // Guzape (Abuja) is added manually below (not in API)
     const estateIds = [8, 15];
     const productsContainer = document.getElementById('products-container');
     const loader = document.getElementById('products-loader');
     const errorContainer = document.getElementById('error-container');
 
     async function fetchEstateDetails(id) {
-      const response = await fetch(`https://api.stephenakintayotv.com/api/v1/estate/detail/${id}`);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const result = await response.json();
-      return result.data;
+      try {
+        const response = await fetch(`https://api.stephenakintayotv.com/api/v1/estate/detail/${id}`);
+        if (!response.ok) {
+          console.warn(`Estate ID ${id} not found or error: ${response.status}`);
+          return null;
+        }
+        const result = await response.json();
+        return result.data;
+      } catch (error) {
+        console.error(`Error fetching estate ${id}:`, error);
+        return null;
+      }
     }
 
     function createProductCard(estate) {
@@ -345,13 +355,8 @@
       const city = estate.town_or_city || 'Nigeria';
       const state = estate.state || '';
 
-      // Map IDs to local pages
-      const pageMap = {
-        8: 'estate-epe.html',
-        15: 'estate-ijebu-ode.html'
-      };
-
-      const detailPage = pageMap[estate.id] || 'contact.html';
+      // Map IDs to dynamic detail page
+      const detailPage = `estate-detail.html?id=${estate.id}`;
 
       return `
         <article class="product-card">
@@ -398,7 +403,62 @@
               </div>
               <div class="btn-group">
                 <a href="${detailPage}" class="btn btn--outline btn--sm">Details</a>
-                <a href="contact.html?subject=Inquiry about ${encodeURIComponent(estate.title)}" class="btn btn--primary btn--sm">Inquire</a>
+                <a href="payment.html?id=${estate.id}" class="btn btn--primary btn--sm">Buy Now</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Manual Guzape estate data (not in API)
+    function createGuzapeProductCard() {
+      return `
+        <article class="product-card">
+          <div class="product-image">
+            <a href="estate-guzape.html">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" alt="Sardius Estate – Guzape">
+            </a>
+            <span class="product-status">Active</span>
+          </div>
+          <div class="product-content">
+            <div class="product-location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Guzape, Abuja, FCT
+            </div>
+            <h3 class="product-title"><a href="estate-guzape.html">Sardius Estate – Guzape</a></h3>
+            <p class="product-description">Prestige Meets Smart Investment. A luxury smart estate in one of Abuja's most prestigious and high-value neighborhoods.</p>
+            
+            <div class="product-details">
+              <div class="detail-item">
+                <span class="detail-label">Plot Size</span>
+                <span class="detail-value">400 SQM</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Zoning</span>
+                <span class="detail-value">Residential</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Title</span>
+                <span class="detail-value">Verified</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Available</span>
+                <span class="detail-value">Contact Us</span>
+              </div>
+            </div>
+
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-label">Starting from</span>
+                <span class="price-amount">Contact for Price</span>
+              </div>
+              <div class="btn-group">
+                <a href="estate-guzape.html" class="btn btn--outline btn--sm">Details</a>
+                <a href="payment.html?estate=guzape" class="btn btn--primary btn--sm">Buy Now</a>
               </div>
             </div>
           </div>
@@ -413,14 +473,24 @@
       productsContainer.innerHTML = '';
 
       try {
+        // Fetch estates from API
         const fetchPromises = estateIds.map(id => fetchEstateDetails(id));
         const estates = await Promise.all(fetchPromises);
 
-        estates.forEach(estate => {
-          if (estate) {
-            productsContainer.innerHTML += createProductCard(estate);
-          }
+        // Filter out null results (failed fetches)
+        const validEstates = estates.filter(estate => estate !== null);
+
+        if (validEstates.length === 0) {
+          throw new Error('No estates could be loaded');
+        }
+
+        // Add API-fetched estates
+        validEstates.forEach(estate => {
+          productsContainer.innerHTML += createProductCard(estate);
         });
+
+        // Add manual Guzape estate card
+        productsContainer.innerHTML += createGuzapeProductCard();
 
         loader.style.display = 'none';
         productsContainer.style.display = 'grid';

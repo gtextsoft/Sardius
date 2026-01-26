@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sardius Group Estate - Premium real estate investment opportunities with verified titles.">
+  
+  <title>Estate Details | Sardius Group Estate</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/Sardius GROUP.png">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/Sardius GROUP.png" alt="Sardius Group Estate Logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+          <li class="nav__item">
+            <a href="product.html" class="nav__link active">Products</a>
+          </li>
+          <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+          <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary btn--sm">Book Inspection</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle mobile menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__mobile">
+      <ul class="nav__mobile-list">
+        <li><a href="index.html" class="nav__mobile-link">Home</a></li>
+        <li><a href="about.html" class="nav__mobile-link">About</a></li>
+        <li><a href="product.html" class="nav__mobile-link">Products</a></li>
+        <li><a href="blog.html" class="nav__mobile-link">Blog</a></li>
+        <li><a href="contact.html" class="nav__mobile-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Loading State -->
+    <div id="loading-container" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+      <div style="text-align: center;">
+        <div class="spinner" style="width: 50px; height: 50px; border: 5px solid var(--color-gray-200); border-top: 5px solid var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+        <p>Loading estate details...</p>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-container" style="display: none; min-height: 100vh; padding: 4rem 2rem; text-align: center;">
+      <h2>Estate Not Found</h2>
+      <p>We couldn't load the estate details. Please try again later.</p>
+      <a href="product.html" class="btn btn--primary mt-4">Back to Products</a>
+    </div>
+
+    <!-- Estate Content (hidden until loaded) -->
+    <div id="estate-content" style="display: none;">
+      <!-- Estate Hero -->
+      <section class="estate-hero">
+        <div class="estate-hero__background">
+          <img id="hero-image" src="" alt="Estate image">
+        </div>
+        <div class="container">
+          <div class="estate-hero__content fade-in">
+            <div class="estate-hero__location">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span id="estate-location">Loading...</span>
+            </div>
+            <h1 class="estate-hero__title" id="estate-title">Loading...</h1>
+            <p class="estate-hero__subtitle" id="estate-subtitle">Loading...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estate Info Cards -->
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <div class="estate-info-grid">
+            <div class="estate-info-card fade-in delay-1">
+              <div class="estate-info-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                </svg>
+              </div>
+              <div class="estate-info-card__label">Plot Sizes</div>
+              <div class="estate-info-card__value" id="plot-size">Loading...</div>
+            </div>
+            <div class="estate-info-card fade-in delay-2">
+              <div class="estate-info-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <div class="estate-info-card__label">Title Status</div>
+              <div class="estate-info-card__value" id="title-status">Loading...</div>
+            </div>
+            <div class="estate-info-card fade-in delay-3">
+              <div class="estate-info-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div class="estate-info-card__label">Starting Price</div>
+              <div class="estate-info-card__value" id="starting-price">Loading...</div>
+            </div>
+            <div class="estate-info-card fade-in delay-4">
+              <div class="estate-info-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div class="estate-info-card__label">Available Plots</div>
+              <div class="estate-info-card__value" id="available-plots">Loading...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About This Estate -->
+      <section class="section section--light">
+        <div class="container">
+          <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+            <div class="fade-in-left">
+              <span class="section-header__label">About This Estate</span>
+              <h2 style="margin-bottom: 1.5rem;" id="about-title">Loading...</h2>
+              <p style="font-size: 1.125rem; color: var(--color-text-light); margin-bottom: 1.5rem;" id="about-description">
+                Loading...
+              </p>
+              <p style="color: var(--color-text-light); margin-bottom: 2rem;" id="about-direction">
+                Loading...
+              </p>
+              
+              <div class="btn-group">
+                <a href="contact.html" class="btn btn--primary" id="buy-button">Buy Now</a>
+                <a href="Sardius GROUP.pdf" class="btn btn--outline" target="_blank">Download Brochure</a>
+              </div>
+            </div>
+            
+            <div class="fade-in-right">
+              <img id="about-image" src="" alt="Estate image" style="border-radius: 1rem; box-shadow: var(--shadow-xl); width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estate Features -->
+      <section class="section" id="amenities-section" style="display: none;">
+        <div class="container">
+          <div class="section-header fade-in">
+            <span class="section-header__label">Estate Amenities</span>
+            <h2 class="section-header__title">What You Get</h2>
+            <p class="section-header__subtitle">
+              Secure title. Planned community. Built for growth.
+            </p>
+          </div>
+          
+          <div class="estate-features-grid" id="amenities-grid" style="display: grid;">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-strip">
+        <div class="container">
+          <h2 class="cta-strip__title fade-in" id="cta-title">Reserve Your Plot</h2>
+          <p class="cta-strip__subtitle fade-in" id="cta-subtitle">
+            Take the first step toward owning premium land.
+          </p>
+          <div class="cta-strip__buttons fade-in">
+            <a href="contact.html" class="btn btn--accent btn--lg" id="cta-buy-button">Buy Now</a>
+            <a href="contact.html" class="btn btn--outline-white btn--lg">Start Payment Plan</a>
+            <a href="contact.html" class="btn btn--outline-white btn--lg">Talk to Consultant</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="images/Sardius GROUP - WHITE.png" alt="Sardius Group Estate" class="footer__logo">
+          <p class="footer__description">
+            Sardius Group Estate is a premium estate development brand focused on affordable luxury living 
+            and high-return property investment across Nigeria's emerging and high-brow districts.
+          </p>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__title">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="product.html" class="footer__link">Products</a></li>
+            <li><a href="blog.html" class="footer__link">Blog & Resources</a></li>
+            <li><a href="faq.html" class="footer__link">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__title">Contact Us</h4>
+          <div class="footer__contact-item">
+            <a href="tel:+2348000000000" style="color: rgba(255,255,255,0.7);">+234 800 000 0000</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2024 Sardius Group Estate by Gtext Land. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Get estate ID from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const estateId = urlParams.get('id');
+
+    const loadingContainer = document.getElementById('loading-container');
+    const errorContainer = document.getElementById('error-container');
+    const estateContent = document.getElementById('estate-content');
+
+    async function fetchEstateDetails() {
+      if (!estateId) {
+        showError();
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://api.stephenakintayotv.com/api/v1/estate/detail/${estateId}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        const estate = result.data;
+
+        if (!estate) {
+          showError();
+          return;
+        }
+
+        // Update page title
+        document.title = `${estate.title} | Sardius Group Estate`;
+        
+        // Update meta description
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.content = estate.description || 'Premium real estate investment opportunity';
+        }
+
+        // Update hero section
+        document.getElementById('estate-title').textContent = estate.title;
+        document.getElementById('estate-subtitle').textContent = estate.description || '';
+        document.getElementById('estate-location').textContent = `${estate.town_or_city || ''}, ${estate.state || ''}`.trim();
+
+        // Update hero image
+        if (estate.preview_display_image) {
+          document.getElementById('hero-image').src = estate.preview_display_image;
+          document.getElementById('hero-image').alt = estate.title;
+        }
+
+        // Update info cards
+        document.getElementById('plot-size').textContent = `From ${estate.size || 'N/A'} SQM`;
+        document.getElementById('title-status').textContent = estate.has_cerificate_of_occupancy ? 'C of O' : 'Survey/Deed';
+        
+        if (estate.plot_detail && estate.plot_detail.formatted_price) {
+          document.getElementById('starting-price').textContent = `₦${estate.plot_detail.formatted_price}`;
+        } else {
+          document.getElementById('starting-price').textContent = 'Contact for Price';
+        }
+
+        if (estate.plot_detail && estate.plot_detail.available_plot) {
+          document.getElementById('available-plots').textContent = `${estate.plot_detail.available_plot} Plots`;
+        } else {
+          document.getElementById('available-plots').textContent = 'Contact Us';
+        }
+
+        // Update about section
+        document.getElementById('about-title').textContent = estate.title || 'About This Estate';
+        document.getElementById('about-description').textContent = estate.description || '';
+        if (estate.direction) {
+          document.getElementById('about-direction').textContent = `Location: ${estate.direction}`;
+        } else {
+          document.getElementById('about-direction').style.display = 'none';
+        }
+
+        // Update about image
+        if (estate.preview_display_image) {
+          document.getElementById('about-image').src = estate.preview_display_image;
+          document.getElementById('about-image').alt = estate.title;
+        }
+
+        // Update amenities - show section only if amenities exist
+        const amenitiesSection = document.getElementById('amenities-section');
+        const amenitiesGrid = document.getElementById('amenities-grid');
+        
+        // Check if amenities exist and are valid
+        const hasAmenities = estate.amenities && 
+                            Array.isArray(estate.amenities) && 
+                            estate.amenities.length > 0;
+        
+        if (hasAmenities) {
+          // Show the section
+          amenitiesSection.style.display = 'block';
+          amenitiesSection.removeAttribute('style');
+          amenitiesSection.style.display = 'block';
+          
+          // Ensure grid is visible
+          amenitiesGrid.style.display = 'grid';
+          
+          // Populate amenities
+          const amenitiesHTML = estate.amenities.map((amenity, index) => {
+            const delay = (index % 6) + 1;
+            return `
+              <div class="estate-feature fade-in delay-${delay}">
+                <div class="estate-feature__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <span class="estate-feature__text">${amenity}</span>
+              </div>
+            `;
+          }).join('');
+          
+          amenitiesGrid.innerHTML = amenitiesHTML;
+        } else {
+          // Hide the entire section if no amenities
+          amenitiesSection.style.display = 'none';
+        }
+
+        // Update CTA section
+        document.getElementById('cta-title').textContent = `Reserve Your Plot in ${estate.town_or_city || 'This Estate'}`;
+        document.getElementById('cta-subtitle').textContent = 'Take the first step toward owning premium land.';
+
+        // Update buy button links to payment page
+        const buyButtons = document.querySelectorAll('#buy-button, #cta-buy-button');
+        buyButtons.forEach(btn => {
+          btn.href = `payment.html?id=${estate.id}`;
+        });
+
+        // Show content, hide loading
+        loadingContainer.style.display = 'none';
+        estateContent.style.display = 'block';
+
+      } catch (error) {
+        console.error('Error fetching estate details:', error);
+        showError();
+      }
+    }
+
+    function showError() {
+      loadingContainer.style.display = 'none';
+      errorContainer.style.display = 'block';
+    }
+
+    // Add spinner animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.addEventListener('DOMContentLoaded', fetchEstateDetails);
+  </script>
+</body>
+</html>

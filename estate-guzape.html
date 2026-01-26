@@ -33,7 +33,6 @@
               <li><a href="estate-ijebu-ode.html" class="nav__dropdown-link">Sardius Estate Ijebu-Ode, Ogun</a></li>
             </ul>
           </li>
-          <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
           <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
           <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
@@ -47,11 +46,10 @@
       <ul class="nav__mobile-list">
         <li><a href="index.html" class="nav__mobile-link">Home</a></li>
         <li><a href="about.html" class="nav__mobile-link">About</a></li>
-        <li><a href="locations.html" class="nav__mobile-link">Estates</a></li>
+        
         <li><a href="estate-guzape.html" class="nav__mobile-link" style="padding-left: 1rem; font-size: 0.9rem;">— Guzape, Abuja</a></li>
         <li><a href="estate-epe.html" class="nav__mobile-link" style="padding-left: 1rem; font-size: 0.9rem;">— Epe, Lagos</a></li>
         <li><a href="estate-ijebu-ode.html" class="nav__mobile-link" style="padding-left: 1rem; font-size: 0.9rem;">— Ijebu-Ode, Ogun</a></li>
-        <li><a href="services.html" class="nav__mobile-link">Services</a></li>
         <li><a href="blog.html" class="nav__mobile-link">Blog</a></li>
         <li><a href="contact.html" class="nav__mobile-link">Contact</a></li>
       </ul>
@@ -71,10 +69,10 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            Guzape, Abuja, FCT
+            <span id="estate-location">Guzape, Abuja, FCT</span>
           </div>
-          <h1 class="estate-hero__title">Sardius Estate – Guzape</h1>
-          <p class="estate-hero__subtitle">
+          <h1 class="estate-hero__title" id="estate-title">Sardius Estate – Guzape</h1>
+          <p class="estate-hero__subtitle" id="estate-subtitle">
             Prestige Meets Smart Investment. A luxury smart estate in one of Abuja's most prestigious and high-value neighborhoods.
           </p>
         </div>
@@ -104,7 +102,7 @@
               </svg>
             </div>
             <div class="estate-info-card__label">Title Status</div>
-            <div class="estate-info-card__value">Verified</div>
+            <div class="estate-info-card__value" id="title-status">Loading...</div>
           </div>
           <div class="estate-info-card fade-in delay-3">
             <div class="estate-info-card__icon">
@@ -114,7 +112,7 @@
               </svg>
             </div>
             <div class="estate-info-card__label">Starting Price</div>
-            <div class="estate-info-card__value">Contact for Price</div>
+            <div class="estate-info-card__value" id="starting-price">Loading...</div>
           </div>
           <div class="estate-info-card fade-in delay-4">
             <div class="estate-info-card__icon">
@@ -169,7 +167,7 @@
             </ul>
             
             <div class="btn-group">
-              <a href="contact.html" class="btn btn--primary">Book Inspection</a>
+              <a href="payment.html?estate=guzape" class="btn btn--primary" id="buy-button">Buy Now</a>
               <a href="Sardius GROUP.pdf" class="btn btn--outline" target="_blank">Download Brochure</a>
             </div>
           </div>
@@ -309,7 +307,7 @@
           Take the first step toward owning premium land in Abuja's most prestigious district.
         </p>
         <div class="cta-strip__buttons fade-in">
-          <a href="contact.html" class="btn btn--accent btn--lg">Book Inspection</a>
+          <a href="payment.html?estate=guzape" class="btn btn--accent btn--lg" id="cta-buy-button">Buy Now</a>
           <a href="contact.html" class="btn btn--outline-white btn--lg">Start Payment Plan</a>
           <a href="contact.html" class="btn btn--outline-white btn--lg">Talk to Consultant</a>
         </div>
@@ -347,7 +345,6 @@
           <ul class="footer__links">
             <li><a href="about.html" class="footer__link">About Us</a></li>
             <li><a href="locations.html" class="footer__link">Our Estates</a></li>
-            <li><a href="services.html" class="footer__link">Services</a></li>
             <li><a href="why-invest.html" class="footer__link">Why Invest</a></li>
             <li><a href="blog.html" class="footer__link">Blog & Resources</a></li>
             <li><a href="faq.html" class="footer__link">FAQs</a></li>
@@ -397,6 +394,66 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Estate ID for Guzape - Update this ID if needed
+    // You can find the correct ID by checking the API or product listings
+    const estateId = null; // Set the correct estate ID here when available
+
+    async function fetchEstateDetails() {
+      // Skip API call if estate ID is not set
+      if (!estateId) {
+        console.log('Estate ID not set for Guzape. Please update the estateId variable.');
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://api.stephenakintayotv.com/api/v1/estate/detail/${estateId}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const result = await response.json();
+        const estate = result.data;
+
+        // Update hero section
+        if (estate.title) {
+          document.getElementById('estate-title').textContent = estate.title;
+        }
+        if (estate.description) {
+          document.getElementById('estate-subtitle').textContent = estate.description;
+        }
+        if (estate.town_or_city && estate.state) {
+          document.getElementById('estate-location').textContent = `${estate.town_or_city}, ${estate.state}`;
+        }
+
+        // Update info cards
+        if (estate.size) {
+          document.getElementById('plot-size').textContent = `From ${estate.size} SQM`;
+        }
+        
+        const titleStatus = estate.has_cerificate_of_occupancy ? 'C of O' : 'Survey/Deed';
+        document.getElementById('title-status').textContent = titleStatus;
+
+        if (estate.plot_detail && estate.plot_detail.formatted_price) {
+          document.getElementById('starting-price').textContent = `₦${estate.plot_detail.formatted_price}`;
+        } else {
+          document.getElementById('starting-price').textContent = 'Contact for Price';
+        }
+
+        // Update hero background image if available
+        if (estate.preview_display_image) {
+          const heroImg = document.querySelector('.estate-hero__background img');
+          if (heroImg) {
+            heroImg.src = estate.preview_display_image;
+            heroImg.alt = estate.title || 'Estate image';
+          }
+        }
+
+      } catch (error) {
+        console.error('Error fetching estate details:', error);
+        // Keep default values on error
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchEstateDetails);
+  </script>
 </body>
 </html>
 

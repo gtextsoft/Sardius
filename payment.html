@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your payment for Sardius Group Estate property purchase.">
+  
+  <title>Payment | Sardius Group Estate</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/Sardius GROUP.png">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/Sardius GROUP.png" alt="Sardius Group Estate Logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="product.html" class="nav__link">Products</a></li>
+          <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+          <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary btn--sm">Book Inspection</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle mobile menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__mobile">
+      <ul class="nav__mobile-list">
+        <li><a href="index.html" class="nav__mobile-link">Home</a></li>
+        <li><a href="about.html" class="nav__mobile-link">About</a></li>
+        <li><a href="product.html" class="nav__mobile-link">Products</a></li>
+        <li><a href="blog.html" class="nav__mobile-link">Blog</a></li>
+        <li><a href="contact.html" class="nav__mobile-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Loading State -->
+    <div id="loading-container" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+      <div style="text-align: center;">
+        <div class="spinner" style="width: 50px; height: 50px; border: 5px solid var(--color-gray-200); border-top: 5px solid var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+        <p>Loading property details...</p>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-container" style="display: none; min-height: 80vh; padding: 4rem 2rem; text-align: center;">
+      <h2>Property Not Found</h2>
+      <p>We couldn't load the property details. Please try again.</p>
+      <a href="product.html" class="btn btn--primary mt-4">Back to Products</a>
+    </div>
+
+    <!-- Payment Content (hidden until loaded) -->
+    <div id="payment-content" style="display: none;">
+      <!-- Page Hero -->
+      <section class="hero" style="min-height: 40vh; padding-top: 120px;">
+        <div class="container">
+          <div class="hero__content fade-in" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="hero__badge">Complete Your Purchase</span>
+            <h1 class="hero__title">Payment for <span id="property-title">Property</span></h1>
+            <p class="hero__subtitle" id="property-location">
+              Complete your payment to secure your plot.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Property Summary -->
+      <section class="section">
+        <div class="container">
+          <div class="grid grid-2" style="gap: 3rem; margin-bottom: 3rem;">
+            <div class="fade-in-left">
+              <div class="contact-card">
+                <h3 style="margin-bottom: 1.5rem;">Property Details</h3>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                  <div>
+                    <span style="color: var(--color-text-light); font-size: 0.9rem;">Property Name</span>
+                    <p style="font-weight: 600; margin-top: 0.25rem;" id="summary-title">-</p>
+                  </div>
+                  <div>
+                    <span style="color: var(--color-text-light); font-size: 0.9rem;">Location</span>
+                    <p style="font-weight: 600; margin-top: 0.25rem;" id="summary-location">-</p>
+                  </div>
+                  <div>
+                    <span style="color: var(--color-text-light); font-size: 0.9rem;">Plot Size</span>
+                    <p style="font-weight: 600; margin-top: 0.25rem;" id="summary-size">-</p>
+                  </div>
+                  <div>
+                    <span style="color: var(--color-text-light); font-size: 0.9rem;">Price per Plot</span>
+                    <p style="font-weight: 600; margin-top: 0.25rem; color: var(--color-primary); font-size: 1.25rem;" id="summary-price">-</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fade-in-right">
+              <div class="contact-card" style="background: var(--color-light);">
+                <h3 style="margin-bottom: 1.5rem;">Payment Instructions</h3>
+                <ol style="padding-left: 1.5rem; color: var(--color-text-light); line-height: 1.8;">
+                  <li>Transfer the payment amount to any of the accounts below</li>
+                  <li>After payment, fill out the verification form with your payment details</li>
+                  <li>Upload your payment receipt/evidence</li>
+                  <li>Our team will verify and confirm your payment within 24-48 hours</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bank Account Details -->
+      <section class="section section--light">
+        <div class="container">
+          <div class="section-header fade-in" style="text-align: center; margin-bottom: 3rem;">
+            <span class="section-header__label">Payment Accounts</span>
+            <h2 class="section-header__title">Our Account Details</h2>
+            <p class="section-header__subtitle">
+              Transfer your payment to any of the accounts below
+            </p>
+          </div>
+
+          <div class="grid grid-2" style="gap: 2rem; max-width: 900px; margin: 0 auto;">
+            <!-- ProvidusBank -->
+            <div class="contact-card fade-in delay-1" style="text-align: center;">
+              <div style="background: var(--color-primary); color: white; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                <h3 style="color: white; margin: 0;">ProvidusBank</h3>
+              </div>
+              <div style="text-align: left; margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 1rem;">
+                  <span style="color: var(--color-text-light); font-size: 0.9rem;">Account Name</span>
+                  <p style="font-weight: 600; margin-top: 0.25rem; font-size: 1.1rem;">GTEXTLAND LIMITED</p>
+                </div>
+                <div>
+                  <span style="color: var(--color-text-light); font-size: 0.9rem;">Account Number</span>
+                  <p style="font-weight: 600; margin-top: 0.25rem; font-size: 1.25rem; color: var(--color-primary); font-family: monospace;">1308305323</p>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('1308305323', 'ProvidusBank')" class="btn btn--outline btn--sm">Copy Account Number</button>
+            </div>
+
+            <!-- Access Bank -->
+            <div class="contact-card fade-in delay-2" style="text-align: center;">
+              <div style="background: var(--color-accent); color: white; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                <h3 style="color: white; margin: 0;">Access Bank</h3>
+              </div>
+              <div style="text-align: left; margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 1rem;">
+                  <span style="color: var(--color-text-light); font-size: 0.9rem;">Account Name</span>
+                  <p style="font-weight: 600; margin-top: 0.25rem; font-size: 1.1rem;">GTEXTLAND LIMITED</p>
+                </div>
+                <div>
+                  <span style="color: var(--color-text-light); font-size: 0.9rem;">Account Number</span>
+                  <p style="font-weight: 600; margin-top: 0.25rem; font-size: 1.25rem; color: var(--color-primary); font-family: monospace;">1497602357</p>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('1497602357', 'Access Bank')" class="btn btn--outline btn--sm">Copy Account Number</button>
+            </div>
+          </div>
+
+          <!-- Account Image -->
+          <div style="text-align: center; margin-top: 3rem;">
+            <img src="images/account.jpeg" alt="Bank Account Details" style="max-width: 500px; width: 100%; height: auto; border-radius: 1rem; box-shadow: var(--shadow-lg); margin: 0 auto; display: block;">
+          </div>
+        </div>
+      </section>
+
+      <!-- Payment Verification Form -->
+      <section class="section">
+        <div class="container">
+          <div style="max-width: 700px; margin: 0 auto;">
+            <div class="section-header fade-in" style="text-align: center; margin-bottom: 2rem;">
+              <span class="section-header__label">Payment Verification</span>
+              <h2 class="section-header__title">Submit Payment Details</h2>
+              <p class="section-header__subtitle">
+                Fill out this form after you have made your payment to verify your transaction
+              </p>
+            </div>
+
+            <div class="contact-card fade-in">
+              <form id="payment-form" action="https://sardiusgroupestate.com/payment-verification" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="estate_id" id="form-estate-id" value="">
+                <input type="hidden" name="estate_title" id="form-estate-title" value="">
+                <input type="hidden" name="estate_price" id="form-estate-price" value="">
+
+                <div class="form-group">
+                  <label class="form-label">Full Name *</label>
+                  <input type="text" name="full_name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Phone Number *</label>
+                  <input type="tel" name="phone" class="form-input" placeholder="e.g. 08012345678" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Amount Paid *</label>
+                  <input type="number" name="amount_paid" class="form-input" placeholder="Enter amount paid in Naira" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Bank Used for Payment *</label>
+                  <select name="bank_used" class="form-select" required>
+                    <option value="">Select bank</option>
+                    <option value="ProvidusBank">ProvidusBank</option>
+                    <option value="Access Bank">Access Bank</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Transaction Reference/Receipt Number *</label>
+                  <input type="text" name="transaction_ref" class="form-input" placeholder="Enter transaction reference or receipt number" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Payment Date *</label>
+                  <input type="date" name="payment_date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Number of Plots *</label>
+                  <input type="number" name="number_of_plots" class="form-input" placeholder="How many plots are you paying for?" min="1" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Payment Receipt/Evidence *</label>
+                  <input type="file" name="payment_receipt" class="form-input" accept="image/*,.pdf" required>
+                  <small style="color: var(--color-text-light); margin-top: 0.5rem; display: block;">
+                    Upload a screenshot or PDF of your payment receipt (Max 5MB)
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Additional Notes</label>
+                  <textarea name="notes" class="form-textarea" placeholder="Any additional information about your payment?"></textarea>
+                </div>
+
+                <div style="background: var(--color-light); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+                  <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+                    <input type="checkbox" name="terms" required style="margin-top: 0.25rem;">
+                    <span style="color: var(--color-text-light); font-size: 0.9rem;">
+                      I confirm that I have made the payment and the information provided is accurate. I understand that my payment will be verified within 24-48 hours. *
+                    </span>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--lg btn--full">Submit Payment Verification</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="images/Sardius GROUP - WHITE.png" alt="Sardius Group Estate" class="footer__logo">
+          <p class="footer__description">
+            Sardius Group Estate is a premium estate development brand focused on affordable luxury living 
+            and high-return property investment across Nigeria's emerging and high-brow districts.
+          </p>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__title">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="product.html" class="footer__link">Products</a></li>
+            <li><a href="blog.html" class="footer__link">Blog & Resources</a></li>
+            <li><a href="faq.html" class="footer__link">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4 class="footer__title">Contact Us</h4>
+          <div class="footer__contact-item">
+            <a href="tel:+2348000000000" style="color: rgba(255,255,255,0.7);">+234 800 000 0000</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2024 Sardius Group Estate by Gtext Land. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Get estate ID or estate name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const estateId = urlParams.get('id');
+    const estateName = urlParams.get('estate'); // For Guzape
+
+    const loadingContainer = document.getElementById('loading-container');
+    const errorContainer = document.getElementById('error-container');
+    const paymentContent = document.getElementById('payment-content');
+
+    // Copy to clipboard function
+    function copyToClipboard(text, bankName) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert(`${bankName} account number copied to clipboard!`);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert(`${bankName} account number copied to clipboard!`);
+      });
+    }
+
+    // Manual Guzape estate data
+    const guzapeEstate = {
+      id: 'guzape',
+      title: 'Sardius Estate – Guzape',
+      town_or_city: 'Guzape',
+      state: 'Abuja, FCT',
+      size: '400',
+      plot_detail: {
+        formatted_price: 'Contact for Price'
+      }
+    };
+
+    async function fetchEstateDetails() {
+      let estate;
+
+      // Handle Guzape (manual estate)
+      if (estateName === 'guzape') {
+        estate = guzapeEstate;
+      } 
+      // Handle API estates
+      else if (estateId) {
+        try {
+          const response = await fetch(`https://api.stephenakintayotv.com/api/v1/estate/detail/${estateId}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const result = await response.json();
+          estate = result.data;
+
+          if (!estate) {
+            showError();
+            return;
+          }
+        } catch (error) {
+          console.error('Error fetching estate details:', error);
+          showError();
+          return;
+        }
+      } else {
+        showError();
+        return;
+      }
+
+      // Update page title
+      document.title = `Payment - ${estate.title} | Sardius Group Estate`;
+
+      // Update hero section
+      document.getElementById('property-title').textContent = estate.title;
+      const locationText = estate.state ? `${estate.town_or_city || ''}, ${estate.state}`.trim() : (estate.town_or_city || '');
+      document.getElementById('property-location').textContent = locationText || 'Premium Estate';
+
+      // Update property summary
+      document.getElementById('summary-title').textContent = estate.title;
+      document.getElementById('summary-location').textContent = locationText || 'Premium Estate';
+      document.getElementById('summary-size').textContent = `${estate.size || 'N/A'} SQM`;
+      
+      if (estate.plot_detail && estate.plot_detail.formatted_price && estate.plot_detail.formatted_price !== 'Contact for Price') {
+        document.getElementById('summary-price').textContent = `₦${estate.plot_detail.formatted_price}`;
+      } else {
+        document.getElementById('summary-price').textContent = 'Contact for Price';
+      }
+
+      // Update form hidden fields
+      document.getElementById('form-estate-id').value = estate.id || estateName || '';
+      document.getElementById('form-estate-title').value = estate.title;
+      if (estate.plot_detail && estate.plot_detail.formatted_price && estate.plot_detail.formatted_price !== 'Contact for Price') {
+        document.getElementById('form-estate-price').value = estate.plot_detail.formatted_price;
+      }
+
+      // Set default amount paid to property price
+      const amountInput = document.querySelector('input[name="amount_paid"]');
+      if (estate.plot_detail && estate.plot_detail.effective_price) {
+        amountInput.value = estate.plot_detail.effective_price;
+      }
+
+      // Show content, hide loading
+      loadingContainer.style.display = 'none';
+      paymentContent.style.display = 'block';
+    }
+
+    function showError() {
+      loadingContainer.style.display = 'none';
+      errorContainer.style.display = 'block';
+    }
+
+    // Add spinner animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Form submission handler
+    document.getElementById('payment-form').addEventListener('submit', function(e) {
+      // Form will submit to sardiusgroupestate.com
+      // You can add additional validation or confirmation here if needed
+    });
+
+    document.addEventListener('DOMContentLoaded', fetchEstateDetails);
+  </script>
+</body>
+</html>
