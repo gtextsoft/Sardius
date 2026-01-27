@@ -510,7 +510,7 @@ p {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 80px; /* Account for fixed header */
+  padding-top: 120px; /* Account for fixed header */
   background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
   background-image: url('https://foreignbuyerswatch.com/wp-content/uploads/2019/07/Capture-d%E2%80%99e%CC%81cran-2019-07-26-a%CC%80-13.14.52.png');
   background-size: cover;
