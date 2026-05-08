@@ -6,7 +6,7 @@
       "permanent": false
     },
     {
-      "source": "/career",
+      "source": "/careers",
       "destination": "https://gtextcareer.vercel.app",
       "permanent": false
     }
