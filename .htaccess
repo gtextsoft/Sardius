@@ -10,3 +10,6 @@ RewriteRule ^resources/?$ https://drive.google.com/drive/folders/1mWNyPr2ATmU6BF
 # Redirect /product to product.html
 RewriteRule ^product/?$ product.html [L]
 
+# Serve the subscription form at /subscription
+RewriteRule ^subscription/?$ subscription.html [L]
+

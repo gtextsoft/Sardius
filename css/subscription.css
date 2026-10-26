@@ -1,0 +1,71 @@
+.subscription-page { background: #f5f7f5; min-height: 100vh; padding-bottom: 4rem; }
+.subscription-hero { padding: 4rem 0 3.5rem; color: #fff; background: linear-gradient(125deg, #064e3b, #0b6a4b); }
+.subscription-hero h1 { color: #fff; margin: .45rem 0 .75rem; font-size: clamp(2.3rem, 5vw, 3.5rem); }
+.subscription-hero p { max-width: 680px; margin: 0; color: rgba(255,255,255,.86); }
+.subscription-kicker, .aside-label { color: #d8ba70; text-transform: uppercase; font-size: .78rem; font-weight: 700; letter-spacing: .12em; }
+.subscription-layout { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 1.25rem; align-items: start; padding-top: 2rem; }
+.subscription-form, .terms-content { min-width: 0; }
+.terms-content { grid-column: 1 / 2; grid-row: 2; }
+.subscription-aside { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: 1.25rem; display: grid; gap: 1rem; }
+.form-card, .aside-card { background: #fff; border: 1px solid #e3e9e5; border-radius: 14px; padding: clamp(1.2rem, 3vw, 2rem); margin-bottom: 1rem; box-shadow: 0 8px 24px rgba(15, 45, 32, .045); }
+.form-card h2 { font-family: var(--font-heading); color: var(--color-secondary); font-size: 1.65rem; margin-bottom: 1.2rem; }
+.form-card h3 { font-size: 1.1rem; margin: 1.1rem 0 .5rem; }
+.form-card p { color: #4b5563; }
+.instruction-list { list-style: disc; padding-left: 1.3rem; color: #4b5563; }
+.instruction-list li { margin: .45rem 0; }
+.instruction-list a, .contact-card a, .aside-card a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.form-grid > label, .upload-label { display: grid; gap: .4rem; font-size: .9rem; font-weight: 600; color: #374151; }
+.form-grid input, .form-grid select, .inline-field { width: 100%; min-height: 46px; border: 1px solid #d3ddd7; border-radius: 7px; background: #fff; color: #1f2937; padding: .65rem .75rem; font: inherit; }
+.form-grid input:focus, .form-grid select:focus, .inline-field:focus { outline: 3px solid rgba(5, 150, 105, .16); border-color: #059669; }
+.form-grid small { font-size: .75rem; color: #7b6550; font-weight: 400; line-height: 1.4; }
+.form-grid fieldset { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .65rem 1rem; }
+.form-grid legend { width: 100%; margin-bottom: .4rem; font-size: .9rem; font-weight: 600; color: #374151; }
+.choice, .agreement-check { display: inline-flex; align-items: center; gap: .5rem; color: #4b5563; font-size: .92rem; }
+.choice input, .agreement-check input { accent-color: #064e3b; width: 17px; height: 17px; }
+.choice-grid { display: flex; flex-wrap: wrap; gap: .9rem 1.35rem; }
+.form-note { margin: 1rem 0 0; padding: .85rem 1rem; border-left: 3px solid #b8860b; background: #fbf8ef; font-size: .88rem; }
+.upload-label { margin-top: 1rem; }
+#passport-photo { margin-top: .5rem; }
+.aside-card { padding: 1.3rem; }
+.aside-card strong { display: block; margin: .5rem 0; color: #173c30; font-size: 1.2rem; }
+.aside-card p { margin: 0 0 .8rem; color: #65716b; font-size: .9rem; }
+.faq-list details { border-top: 1px solid #e5e9e6; padding: .9rem 0; }
+.faq-list details:last-child { border-bottom: 1px solid #e5e9e6; }
+.faq-list summary { color: #173c30; font-weight: 700; cursor: pointer; }
+.faq-list details p { margin: .55rem 0 0; }
+.table-scroll { overflow-x: auto; }
+.form-card table { border-collapse: collapse; width: 100%; min-width: 660px; font-size: .88rem; }
+.form-card th, .form-card td { padding: .75rem .7rem; border: 1px solid #e3e9e5; text-align: left; }
+.form-card thead th { background: #edf4ef; color: #173c30; }
+.form-card tbody th { white-space: nowrap; }
+.policy-copy ol { padding-left: 1.4rem; color: #4b5563; }
+.policy-copy li { margin: .65rem 0; }
+.inline-field { display: inline-block; width: min(350px, 100%); min-height: 36px; vertical-align: middle; }
+.agreement-check { margin: .5rem 0 1.2rem; }
+.signature-grid { margin-top: 1rem; }
+.form-actions { text-align: center; padding: 1rem 0 2rem; }
+.form-actions p { max-width: 650px; margin: .8rem auto 0; color: #65716b; font-size: .9rem; }
+.subscription-footer { padding: 1.5rem 0; background: #123c30; color: #fff; font-size: .9rem; }
+.subscription-footer a { color: #fff; }
+@media (max-width: 900px) {
+  .subscription-layout { grid-template-columns: minmax(0, 1fr); }
+  .subscription-aside { grid-column: 1; grid-row: auto; position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .terms-content { grid-row: auto; }
+}
+@media (max-width: 600px) {
+  .subscription-hero { padding: 3rem 0 2.5rem; }
+  .subscription-aside, .form-grid { grid-template-columns: 1fr; }
+  .form-grid fieldset { display: grid; }
+  .form-card { border-radius: 10px; }
+}
+@media print {
+  .header, .subscription-aside, .subscription-footer, .form-actions, #passport-photo { display: none !important; }
+  .subscription-page { background: #fff; padding: 0; }
+  .subscription-layout { display: block; padding-top: 0; }
+  .subscription-hero { background: none; color: #000; padding: 1rem 0; }
+  .subscription-hero h1 { color: #000; }
+  .form-card { box-shadow: none; break-inside: avoid; }
+  .terms-content .form-card { break-inside: auto; }
+  .faq-list details:not([open]) > *:not(summary) { display: block; }
+}

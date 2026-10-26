@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Complete the Sardius Estate Ijebu-Ode subscription form and review pricing, payment terms, and purchase conditions.">
+  <title>Sardius Estate Ijebu-Ode Subscription Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/subscription.css">
+  <link rel="icon" type="image/png" href="images/Sardius GROUP - BLK.png">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo"><img src="images/Sardius GROUP - BLK.png" alt="Sardius Group Estate"></a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="product.html" class="nav__link">Products</a></li>
+          <li class="nav__item"><a href="/subscription" class="nav__link active" aria-current="page">Subscription</a></li>
+          <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+          <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary btn--sm">Book Inspection</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav__mobile" aria-label="Mobile navigation">
+      <ul class="nav__mobile-list">
+        <li><a href="/" class="nav__mobile-link">Home</a></li><li><a href="about.html" class="nav__mobile-link">About</a></li>
+        <li><a href="product.html" class="nav__mobile-link">Products</a></li><li><a href="/subscription" class="nav__mobile-link" aria-current="page">Subscription</a></li>
+        <li><a href="blog.html" class="nav__mobile-link">Blog</a></li><li><a href="contact.html" class="nav__mobile-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="subscription-page">
+    <section class="subscription-hero">
+      <div class="container">
+        <span class="subscription-kicker">Sardius Estate · Ijebu-Ode</span>
+        <h1>Subscription Form</h1>
+        <p>Complete your details and review the estate pricing, payment information, and terms before submitting.</p>
+      </div>
+    </section>
+
+    <div class="container subscription-layout">
+      <form id="subscription-form" class="subscription-form">
+        <section class="form-card" aria-labelledby="instructions-title">
+          <h2 id="instructions-title">Instructions</h2>
+          <ul class="instruction-list">
+            <li>Please read this form carefully before filling it. This form should be completed in <strong>BLOCK LETTERS</strong> only.</li>
+            <li>Please provide accurate information only. All information supplied will be treated as confidential.</li>
+            <li>Attach a recent passport photo that reflects the true likeness of the applicant or an authorizing officer. Write your full name on its reverse side.</li>
+            <li>Names will appear on your title documents as filled on this form. The instructions state that a subsequent alteration attracts N50,000; the personal details section states N500,000 for a change of name. Please confirm the applicable fee with Gtext Land.</li>
+            <li>Filling this form without payment of a deposit does not create an obligation between subscriber(s) and the company.</li>
+            <li>The form can be completed electronically. Select “Send completed form” at the end to prepare an email to <a href="mailto:info@gtextland.com">info@gtextland.com</a>.</li>
+          </ul>
+          <label class="upload-label" for="passport-photo">Passport photo (optional attachment for your email)</label>
+          <input id="passport-photo" name="Passport photo" type="file" accept="image/*">
+        </section>
+
+        <section class="form-card" aria-labelledby="personal-title">
+          <h2 id="personal-title">1. Personal Details</h2>
+          <div class="form-grid">
+            <label>Title<input name="Title" autocomplete="honorific-prefix" required></label>
+            <label>Surname<input name="Surname" autocomplete="family-name" required></label>
+            <label>Other names<input name="Other names" autocomplete="given-name" required></label>
+            <label>Preferred name on document<input name="Preferred name on document" required><small>Change of name attracts N500,000 (confirm applicable fee; see instructions).</small></label>
+            <label>Marital status<input name="Marital status" required></label>
+            <label>Maiden name<input name="Maiden name"></label>
+            <label>Street name<input name="Personal street" required></label><label>City<input name="Personal city" required></label>
+            <label>State<input name="Personal state" required></label><label>Country<input name="Personal country" required></label>
+            <label>Religion<select name="Religion" required><option value="">Select</option><option>Christianity</option><option>Islam</option><option>Other</option></select></label>
+            <label>Date of birth<input name="Date of birth" type="date" required></label>
+            <label>Nationality<input name="Nationality" required></label>
+            <fieldset><legend>Gender</legend><label class="choice"><input type="radio" name="Gender" value="Male" required> Male</label><label class="choice"><input type="radio" name="Gender" value="Female"> Female</label></fieldset>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="mailing-title">
+          <h2 id="mailing-title">2. Mailing Address</h2>
+          <div class="form-grid">
+            <label>Street name<input name="Mailing street" required></label><label>City<input name="Mailing city" required></label>
+            <label>State<input name="Mailing state" required></label><label>Email address<input name="Email address" type="email" autocomplete="email" required></label>
+            <label>Home number<input name="Home number" type="tel"></label><label>Mobile number<input name="Mobile number" type="tel" required></label>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="kin-title">
+          <h2 id="kin-title">3. Next of Kin</h2>
+          <div class="form-grid"><label>Name<input name="Next of kin name" required></label><label>Mobile<input name="Next of kin mobile" type="tel" required></label><label>Email<input name="Next of kin email" type="email" required></label></div>
+        </section>
+
+        <section class="form-card" aria-labelledby="employment-title">
+          <h2 id="employment-title">4. Current Employment Details</h2>
+          <div class="form-grid">
+            <label>Employment / employer<input name="Employment" required></label><label>Telephone<input name="Employment telephone" type="tel" required></label>
+            <label>Designation<input name="Designation" required></label><label>Street name<input name="Employment street" required></label>
+            <label>City<input name="Employment city" required></label><label>State<input name="Employment state" required></label><label>Country<input name="Employment country" required></label>
+            <fieldset><legend>Means of identification</legend><label class="choice"><input type="radio" name="Identification" value="Driver's License" required> Driver’s License</label><label class="choice"><input type="radio" name="Identification" value="National ID Card"> National ID Card</label><label class="choice"><input type="radio" name="Identification" value="International Passport"> International Passport</label></fieldset>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="purchase-title">
+          <h2 id="purchase-title">5. Purpose of Purchase</h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="Purpose of purchase" value="Land banking" required> Land banking</label>
+            <label class="choice"><input type="radio" name="Purpose of purchase" value="Commercial"> Commercial</label>
+            <label class="choice"><input type="radio" name="Purpose of purchase" value="Ready to develop"> Ready to develop</label>
+            <label class="choice"><input type="radio" name="Purpose of purchase" value="Ready to develop in 0–6 months"> Ready to develop in 0–6 months</label>
+            <label class="choice"><input type="radio" name="Purpose of purchase" value="Ready to develop in 6–12 months"> Ready to develop in 6–12 months</label>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="payment-title">
+          <h2 id="payment-title">6. Payment Option</h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="Payment option" value="Outright" required> Outright</label>
+            <label class="choice"><input type="radio" name="Payment option" value="1–3 months"> 1–3 months</label>
+            <label class="choice"><input type="radio" name="Payment option" value="6–36 months"> 6–36 months</label>
+          </div>
+          <p class="form-note">The source form lists “13 Months” and “36 Months”; the installment terms below describe a 3-month schedule. Please confirm the intended plan with Gtext Land.</p>
+          <div class="form-grid">
+            <label>Number of plots<input name="Number of plots" type="number" min="1" required></label><label>Area (sqm)<input name="Area (sqm)" type="number" min="1" required></label>
+            <fieldset><legend>Payment method</legend><label class="choice"><input type="radio" name="Payment method" value="Online" required> Online</label><label class="choice"><input type="radio" name="Payment method" value="Cheque"> Cheque</label><label class="choice"><input type="radio" name="Payment method" value="Transfer"> Transfer</label><label class="choice"><input type="radio" name="Payment method" value="Cash"> Cash</label></fieldset>
+            <label>Total amount payable<input name="Total amount payable" required></label><label>Applicant signature (type full name)<input name="Applicant signature" required></label>
+          </div>
+        </section>
+      </form>
+
+      <aside class="subscription-aside">
+        <div class="aside-card"><span class="aside-label">Estate location</span><strong>Odo-Asoyin / Isiwo</strong><p>Ijebu-Ode, Odogbolu Local Government, Ogun State</p><a href="mailto:info@gtextland.com">Contact Gtext Land</a></div>
+        <div class="aside-card"><span class="aside-label">Before you submit</span><p>Check each answer and attach a recent passport photo to the email draft if required. No account numbers are included because the source graphic was not legible.</p></div>
+      </aside>
+
+      <div class="terms-content">
+        <section class="form-card" id="terms">
+          <h2>Frequently Asked Questions / Terms and Conditions</h2>
+          <div class="faq-list">
+            <details open><summary>Where is the estate located?</summary><p>Sardius Estate is located at Odo-Asoyin/Isiwo, Ijebu-Ode, Odogbolu Local Government, Ogun State.</p></details>
+            <details><summary>Who owns / develops the estate?</summary><p>Gtext Land.</p></details>
+            <details><summary>What type of title do you have on the land?</summary><p>Registered Survey.</p></details>
+            <details><summary>Are there any encumbrances on the land?</summary><p>The land is free from government acquisition and adverse claims.</p></details>
+            <details><summary>What is the price of the land?</summary><p>$9,714.90 (N15,000,000).</p></details>
+            <details><summary>Is there a payment plan?</summary><p>The standard payment plan is 3 months in installments: 30% of the total agreed amount on the first installment, 25% on the second installment (first month), 25% on the third installment (second month), and 20% on the final installment (third month). Each extra month needed adds a 5% charge to the total amount. This should be explained in the contract of sale.</p></details>
+            <details><summary>What is the size of a plot?</summary><p>400 sqm.</p></details>
+            <details><summary>What other payment is required apart from the land price?</summary><p>No further payments are required except those necessary for perfection of title, which may vary with statutory government fees. The purchaser shall also pay developmental fees of $8,333.33 (N12,500,000), which can be spread over 12 to 36 months, for estate improvements and other developmental obligations during the land-banking period. Infrastructure fees or service charges may also be payable when construction begins.</p></details>
+            <details><summary>What infrastructure is expected?</summary><p>Drainage systems, electrification and street lighting, water supply, waste management, security cameras, paved roads, and perimeter fencing.</p></details>
+            <details><summary>What do I get after the initial land payment?</summary><p>A receipt for payments made.</p></details>
+            <details><summary>Is the road to the estate accessible?</summary><p>Yes, the road to the estate is accessible.</p></details>
+            <details><summary>When will my plot(s) be allocated?</summary><p>Plots will be allocated after full payment. Upon purchase, a temporary allocation will be assigned and sent to you. You have 3 months to complete payment, after which your allocation will be made permanent.</p></details>
+            <details><summary>What is the size and price of a corner piece?</summary><p>The size varies; the amount is prorated using the price per square meter at the point of purchase.</p></details>
+            <details><summary>Can I start construction immediately?</summary><p>Construction can commence once land payment is complete and the survey, title deeds, and building approval have been obtained.</p></details>
+            <details><summary>Are commercial plots available?</summary><p>Yes.</p></details>
+            <details><summary>Are there building restrictions?</summary><p>All building designs must be submitted to Gtext Land, approved by Gtext Homes in the first instance, and then by the Ogun State Government before building work can commence.</p></details>
+            <details><summary>Can I have a survey for more than one plot?</summary><p>Yes, additional surveys attract additional costs.</p></details>
+            <details><summary>Can I pay an agent?</summary><p>No. All payments should be made to the Gtext Land account at its designated banks. Cheques should be issued in favour of Gtext Land. The company accepts no responsibility for liability arising from deviation from this instruction.</p></details>
+            <details><summary>Can I get a refund if I cannot continue payments?</summary><p>Refer to the refund policy below.</p></details>
+            <details><summary>Can I resell my plot / property?</summary><p>Yes. Subscribers up to date on land payments, documentation levy, and development levy can resell their plots, subject to approval by Gtext Land management. The reseller must provide the buyer’s details so the company can update its database.</p></details>
+          </div>
+        </section>
+
+        <section class="form-card">
+          <h2>Land Pricing Table</h2>
+          <div class="table-scroll"><table><thead><tr><th>Payment option</th><th>Residential (N)</th><th>Residential ($)</th><th>Commercial (N)</th><th>Commercial ($)</th></tr></thead><tbody>
+            <tr><th>Outright payment</th><td>15,000,000</td><td>9,714.90</td><td>25,000,000</td><td>16,191.70</td></tr>
+            <tr><th>Installment payment</th><td>20,000,000</td><td>12,953.20</td><td>30,000,000</td><td>19,430.05</td></tr>
+            <tr><th>Mini estate</th><td>60,000,000</td><td>38,860.10</td><td>70,000,000</td><td>45,336.78</td></tr>
+          </tbody></table></div>
+        </section>
+
+        <section class="form-card">
+          <h2>Payment Plan / Installment Breakdown</h2>
+          <div class="table-scroll"><table><thead><tr><th>Payment plan / percentage</th><th>Installment (N20,000,000)</th><th>Installment ($12,953.20)</th><th>Mini estate (N60,000,000)</th><th>Mini estate ($38,860.10)</th></tr></thead><tbody>
+            <tr><th>Initial deposit (30%)</th><td>6,000,000.00</td><td>3,885.96</td><td>18,000,000.00</td><td>11,658.03</td></tr>
+            <tr><th>First installment (25%)</th><td>5,000,000.00</td><td>3,238.30</td><td>15,000,000.00</td><td>9,715.03</td></tr>
+            <tr><th>Second installment (25%)</th><td>5,000,000.00</td><td>3,238.30</td><td>15,000,000.00</td><td>9,715.03</td></tr>
+            <tr><th>Third installment (20%)</th><td>4,000,000.00</td><td>2,590.64</td><td>12,000,000.00</td><td>7,772.02</td></tr>
+            <tr><th>Total</th><td>20,000,000</td><td>12,953.20</td><td>60,000,000</td><td>38,860.10</td></tr>
+          </tbody></table></div>
+        </section>
+
+        <section class="form-card policy-copy">
+          <h2>Refund Policy</h2><h3>No refunds on completed land purchases</h3>
+          <p>All land purchases completed and confirmed by Gtext Land Limited are final and non-refundable. Once a purchase has been concluded and the land allocated to the purchaser, payments shall not be refunded because the purchaser changes their mind, decides not to proceed, or is no longer interested. Purchasers are advised to conduct necessary inspections and ensure they are satisfied with the property and its terms before completing payment.</p>
+          <h2>Buyback Option Clause</h2>
+          <p>Where a client is no longer interested in maintaining ownership of purchased property, the client may seek a buyer or request that the Company repurchase the property, subject to these terms.</p>
+          <ol><li><strong>Buyback option.</strong> If the Company repurchases the property, the repurchase price is reduced by 35% of the initial purchase sum agreed when the property was purchased.</li><li><strong>Payment terms.</strong> Payment is issued in staggered installments, commencing 90 days after signing the Deed of Assignment. Amounts and timing are mutually agreed in a separate agreement.</li><li><strong>Company discretion.</strong> The Company may decide whether to proceed with a buyback and may discontinue the option based on market conditions, financial considerations, or other relevant factors.</li></ol>
+          <h2>Resell Clause</h2>
+          <ol><li><strong>Sell option.</strong> Previous buyers may independently sell the property. Upon securing a buyer, they must obtain a release form to proceed with resale, even if the land or house is not fully paid.</li><li><strong>Full payment option.</strong> The new buyer pays the full purchase price directly to GTEXT LAND as seller.</li><li><strong>Payment split option (optional).</strong> If the new buyer makes a partial payment, the initial owner completes the balance to GTEXT LAND as seller.</li></ol>
+          <h2>Release Clause</h2><p>Once agreed payments and terms are fulfilled, GTEXT LAND transfers ownership rights from the initial purchaser to the new buyer. Both parties agree to collaborate on a smooth transfer. This is a general template; additional clauses or modifications may be needed for a specific resale agreement. Consult a legal professional for a comprehensive customized agreement.</p>
+          <h2>Default Clause</h2><p>The company reserves the right to revoke the subscription where the client defaults on the payment plan for three months; the property will be deemed forfeited.</p>
+          <h2>Revocation Clause</h2><p>The client agrees that the company may revoke the plot(s) if there is a default in installment payments or any fees mentioned above. Costs incurred as a result of revocation shall be borne by the defaulting party.</p>
+          <h2>Reallocation Clause</h2><p>The Company may reallocate the Client to another estate if issues affect the subscribed plots, including plot availability or zoning. If the Client does not meet the payment schedule before all available plots are sold, the Company may reallocate the Client to another estate with available plots, subject to that estate’s terms and pricing.</p>
+          <h2>Ratification of Title</h2><p>Each client is solely responsible for ratification and procurement of their individual Governor’s Consent under applicable laws. The Company is not liable for related delays, costs, or obligations. Clients must ensure compliance with legal and administrative requirements and bear the attendant costs.</p>
+        </section>
+
+        <section class="form-card agreement-card">
+          <h2>Agreement and Undertaking</h2>
+          <p>I, <input class="inline-field" name="Agreement name" form="subscription-form" aria-label="Name for agreement" required>, a subscriber to Sardius Estate Ijebu-Ode, acknowledge my obligation to pay all installments due on my payment plan for the plots subscribed to, on a weekly/monthly basis.</p>
+          <p>I understand that a 10% fee will be applied to any defaulted installment amount. I acknowledge the promoters’ right to revoke plot(s) if I fail, refuse, or neglect to pay for three consecutive months. I am aware that my initial payment is non-refundable. I acknowledge that if any information I supplied is false, I will be disqualified from allotment. I have read and understood the terms and conditions herein and agree to them.</p>
+          <label class="agreement-check"><input type="checkbox" name="Agreement accepted" form="subscription-form" required> I have read and agree to the terms and conditions above.</label>
+          <div class="form-grid signature-grid"><label>Applicant’s signature (type full name)<input name="Agreement signature" form="subscription-form" required></label><label>Date<input name="Agreement date" form="subscription-form" type="date" required></label></div>
+        </section>
+
+        <section class="form-card">
+          <h2>In the Presence Of</h2>
+          <div class="form-grid"><label>Name<input name="Witness name" form="subscription-form" required></label><label>Street name<input name="Witness street" form="subscription-form" required></label><label>City<input name="Witness city" form="subscription-form" required></label><label>State<input name="Witness state" form="subscription-form" required></label><label>Country<input name="Witness country" form="subscription-form" required></label><label>Occupation<input name="Witness occupation" form="subscription-form" required></label><label>Witness’s signature (type full name)<input name="Witness signature" form="subscription-form" required></label><label>Date<input name="Witness date" form="subscription-form" type="date" required></label></div>
+        </section>
+
+        <section class="form-card">
+          <h2>Referral Details</h2><p>To be confirmed by Gtext Land.</p>
+          <div class="form-grid"><label>Marketer’s name<input name="Marketer name" form="subscription-form"></label><label>Marketer’s mobile<input name="Marketer mobile" form="subscription-form" type="tel"></label><label>Marketer’s email<input name="Marketer email" form="subscription-form" type="email"></label><label>Date treated<input name="Date treated" form="subscription-form" type="date"></label></div>
+        </section>
+
+        <section class="form-card contact-card"><h2>Gtext Land Contact Information</h2><p><strong>GTEXT LAND</strong><br>25A, Lola Holloway, Omole Phase 1, Lagos<br>Phone: <a href="tel:+2348188111999">+234 818 811 1999</a><br>Website: <a href="https://www.gtextland.com">gtextland.com</a><br>Email: <a href="mailto:info@gtextland.com">info@gtextland.com</a></p>
+          <p class="form-note"><strong>Please verify these details before payment:</strong> Source material contains differing name-change fees and payment-plan durations. It also references account details in a graphic that could not be transcribed confidently; no account numbers have been reproduced here. Amounts and contract terms are transcribed from supplied material and have not been independently verified.</p>
+        </section>
+        <div class="form-actions"><button type="submit" class="btn btn--primary btn--lg" form="subscription-form">Send completed form</button><p>The button opens your email app with the form details addressed to info@gtextland.com. Attach your passport photo to that message before sending.</p></div>
+      </div>
+    </div>
+  </main>
+  <footer class="subscription-footer"><div class="container"><a href="/">Sardius Group Estate</a><span> · </span><a href="mailto:info@gtextland.com">info@gtextland.com</a></div></footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('subscription-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!this.reportValidity()) return;
+      const lines = Array.from(new FormData(this).entries())
+        .filter(([key, value]) => key !== 'Passport photo' && value instanceof File === false)
+        .map(([key, value]) => `${key}: ${value}`);
+      const subject = encodeURIComponent('Sardius Estate Ijebu-Ode Subscription Form');
+      const body = encodeURIComponent(`Sardius Estate Ijebu-Ode Subscription Form\n\n${lines.join('\n')}\n\nPlease attach the applicant passport photo if required.`);
+      window.location.href = `mailto:info@gtextland.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
