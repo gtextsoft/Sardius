@@ -1,10 +1,11 @@
-.subscription-page { background: #f5f7f5; min-height: 100vh; padding-bottom: 4rem; }
+.subscription-page { background: #f5f7f5; min-height: 100vh; padding: 82px 0 4rem; }
 .subscription-hero { padding: 4rem 0 3.5rem; color: #fff; background: linear-gradient(125deg, #064e3b, #0b6a4b); }
 .subscription-hero h1 { color: #fff; margin: .45rem 0 .75rem; font-size: clamp(2.3rem, 5vw, 3.5rem); }
 .subscription-hero p { max-width: 680px; margin: 0; color: rgba(255,255,255,.86); }
 .subscription-kicker, .aside-label { color: #d8ba70; text-transform: uppercase; font-size: .78rem; font-weight: 700; letter-spacing: .12em; }
 .subscription-layout { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 1.25rem; align-items: start; padding-top: 2rem; }
 .subscription-form, .terms-content { min-width: 0; }
+.subscription-page, .subscription-page * { min-width: 0; }
 .terms-content { grid-column: 1 / 2; grid-row: 2; }
 .subscription-aside { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: 1.25rem; display: grid; gap: 1rem; }
 .form-card, .aside-card { background: #fff; border: 1px solid #e3e9e5; border-radius: 14px; padding: clamp(1.2rem, 3vw, 2rem); margin-bottom: 1rem; box-shadow: 0 8px 24px rgba(15, 45, 32, .045); }
@@ -34,7 +35,7 @@
 .faq-list details:last-child { border-bottom: 1px solid #e5e9e6; }
 .faq-list summary { color: #173c30; font-weight: 700; cursor: pointer; }
 .faq-list details p { margin: .55rem 0 0; }
-.table-scroll { overflow-x: auto; }
+.table-scroll { overflow-x: auto; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; }
 .form-card table { border-collapse: collapse; width: 100%; min-width: 660px; font-size: .88rem; }
 .form-card th, .form-card td { padding: .75rem .7rem; border: 1px solid #e3e9e5; text-align: left; }
 .form-card thead th { background: #edf4ef; color: #173c30; }
@@ -53,15 +54,33 @@
   .subscription-aside { grid-column: 1; grid-row: auto; position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .terms-content { grid-row: auto; }
 }
+@media (max-width: 768px) {
+  .header .nav { gap: 0; }
+  .header .nav > .btn { display: none; }
+  .header .nav__mobile { top: 82px; }
+  .subscription-hero { padding-top: 3rem; }
+}
 @media (max-width: 600px) {
   .subscription-hero { padding: 3rem 0 2.5rem; }
   .subscription-aside, .form-grid { grid-template-columns: 1fr; }
   .form-grid fieldset { display: grid; }
   .form-card { border-radius: 10px; }
+  .form-card h2 { font-size: 1.4rem; }
+  .subscription-kicker { font-size: .7rem; }
+  .form-actions .btn { width: 100%; justify-content: center; }
+  .choice, .agreement-check { align-items: flex-start; }
+  .choice input, .agreement-check input { flex: 0 0 17px; margin-top: .2rem; }
+  .inline-field { display: block; margin: .4rem 0; }
+}
+@media (max-width: 360px) {
+  .subscription-hero h1 { font-size: 2rem; }
+  .form-card, .aside-card { padding: 1rem; }
+  .subscription-layout { gap: .75rem; }
 }
 @media print {
   .header, .subscription-aside, .subscription-footer, .form-actions, #passport-photo { display: none !important; }
   .subscription-page { background: #fff; padding: 0; }
+  .subscription-page { padding-top: 0; }
   .subscription-layout { display: block; padding-top: 0; }
   .subscription-hero { background: none; color: #000; padding: 1rem 0; }
   .subscription-hero h1 { color: #000; }
